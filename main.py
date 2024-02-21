@@ -32,13 +32,25 @@ while int(numRows) > maxRows:
 #Naming each column and the type. For string types, make a list that the generator will use
 columnsNd = 0
 while columnsNd < int(numColumns):
-    print('Name column ' + str(columnsNd +  1) + ':')
+    print('Name column ' + str(columnsNd + 1) + ':')
     colNamStr = input()
-    columnNames = columnNames + [colNamStr]
+    columnNames.append(colNamStr)
     columnsNd = columnsNd + 1
+
+    print('What TYPE is column ' + colNamStr + '? Float, Int, String, or Boolean')
+    colTypStr = input()
+    colTypStr = colTypStr.capitalize()
+    while not (colTypStr == 'Float' or colTypStr == 'Int' or colTypStr == 'String' or colTypStr == 'Boolean'):
+        print('Wrong TYPE. Please try again.')
+        print('What TYPE is column ' + colNamStr + '? Float, Int, String, or Boolean')
+        colTypStr = input()
+        colTypStr = colTypStr.capitalize()
+
+    columnTypes.append(colTypStr)
     # TEST
-    print(columnNames)
     print(columnsNd)
+    print(columnNames)
+    print(columnTypes)
 
 #Random Generator
 
