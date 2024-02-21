@@ -30,6 +30,15 @@ while int(numRows) > maxRows:
     numRows = input()
 
 #Naming each column and the type. For string types, make a list that the generator will use
+columnsNd = 0
+while columnsNd < int(numColumns):
+    print('Name column ' + str(columnsNd +  1) + ':')
+    colNamStr = input()
+    columnNames = columnNames + [colNamStr]
+    columnsNd = columnsNd + 1
+    # TEST
+    print(columnNames)
+    print(columnsNd)
 
 #Random Generator
 
@@ -38,5 +47,5 @@ while int(numRows) > maxRows:
 #Export out as a .csv
 
 #  TEST
-print(numColumns)
-print(numRows)
+# print(numColumns)
+# print(numRows)
