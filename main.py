@@ -48,11 +48,12 @@ while columnsNd < int(numCols):
     if colTypStr == 'String':
         print('What are the strings for the column? Use a comma between each string.')
         colRangeStr = input()
+        colRangeStr = colRangeStr.split(',')
     elif colTypStr == 'Boolean':
         print('Boolean chosen') #Delete this once corrected
         colRangeStr = ['True', 'False']
     else:
-        print('What is the range?')
+        print('What is the range? Example 0 - 100')
         colRangeStr = input()
     colTypes.append(colTypStr)
     colRange.append(colRangeStr)
