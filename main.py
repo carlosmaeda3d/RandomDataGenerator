@@ -1,22 +1,23 @@
 # import pandas as pd
 
-numColumns = 0
-columnNames = []
-columnTypes = []
+numCols = 0
+colNames = []
+colTypes = []
+colRange = []
 numRows = 0
-maxColumns = 10
+maxCols = 10
 maxRows = 200
 
 #Random Generator - generates data to a .csv based on the amount of columns/rows, column names & types, you input
 #Asks how many columns
-print('How many columns you want? Max is ' + str(maxColumns))
-numColumns = input()
+print('How many columns you want? Max is ' + str(maxCols))
+numCols = input()
 
-while int(numColumns) > maxColumns:
+while int(numCols) > maxCols:
     print('Went over maximum amount of columns. Please try again')
-    numColumns = 0
-    print('How many columns you want? Max is ' + str(maxColumns))
-    numColumns = input()
+    numCols = 0
+    print('How many columns you want? Max is ' + str(maxCols))
+    numCols = input()
 
 print('How many rows you want to create? Max is ' + str(maxRows))
 numRows = input()
@@ -28,12 +29,12 @@ while int(numRows) > maxRows:
     print('How many rows you want to create? Max is ' + str(maxRows))
     numRows = input()
 
-#Naming each column and the type. For string types, make a list that the generator will use
+#Naming each column, type, and range. For string types, make a list that the generator will use
 columnsNd = 0
-while columnsNd < int(numColumns):
+while columnsNd < int(numCols):
     print('Name column ' + str(columnsNd + 1) + ':')
     colNamStr = input()
-    columnNames.append(colNamStr)
+    colNames.append(colNamStr)
     columnsNd = columnsNd + 1
 
     print('What TYPE is column ' + colNamStr + '? Float, Int, String, or Boolean')
@@ -44,12 +45,22 @@ while columnsNd < int(numColumns):
         print('What TYPE is column ' + colNamStr + '? Float, Int, String, or Boolean')
         colTypStr = input()
         colTypStr = colTypStr.capitalize()
-
-    columnTypes.append(colTypStr)
+    if colTypStr == 'String':
+        print('What are the strings for the column? Use a comma between each string.')
+        colRangeStr = input()
+    elif colTypStr == 'Boolean':
+        print('Boolean chosen') #Delete this once corrected
+        colRangeStr = ['True', 'False']
+    else:
+        print('What is the range?')
+        colRangeStr = input()
+    colTypes.append(colTypStr)
+    colRange.append(colRangeStr)
     # TEST
-    print(columnsNd)
-    print(columnNames)
-    print(columnTypes)
+print(columnsNd)
+print(colNames)
+print(colTypes)
+print(colRange)
 
 #Random Generator
 
