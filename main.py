@@ -57,13 +57,16 @@ while columnsNd < int(numCols):
         colRangeStr = input()
     colTypes.append(colTypStr)
     colRange.append(colRangeStr)
-    # TEST
+
+# TEST
 print(columnsNd)
 print(colNames)
 print(colTypes)
 print(colRange)
 
-#Random Generator
+#Random Generator to make lists for each column
+
+#Turning lists into a dictionary for pandas dataframe. Make column names keys
 
 #Adding generator lists to a panda dataframe
 
