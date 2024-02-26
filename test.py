@@ -7,3 +7,10 @@ colRange = ['0-100', ['rest', ' crest', ' fest'], ['True', 'False']]
 numRows = 8
 maxCols = 10
 maxRows = 200
+
+colData = []
+
+for c in range(numCols):
+    colData.append([])
+
+print(colData)
