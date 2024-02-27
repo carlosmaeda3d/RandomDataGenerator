@@ -1,4 +1,4 @@
-# import pandas as pd
+import random as rd
 
 numCols = 0
 colNames = []
@@ -55,6 +55,7 @@ while columnsNd < int(numCols):
     else:
         print('What is the range? Example 0 - 100')
         colRangeStr = input()
+        colRangeStr = colRangeStr.split('-')
     colTypes.append(colTypStr)
     colRange.append(colRangeStr)
 
@@ -65,6 +66,28 @@ print(colTypes)
 print(colRange)
 
 #Random Generator to make lists for each column
+colData = []
+
+for c in range(int(numCols)):
+    rData = []
+    for r in range(int(numRows)):
+        if colTypes[c] == 'Int':
+            randVar = rd.randint(int(colRange[c][0]), int(colRange[c][1]))
+            # randVar = r + 1
+            rData.append(randVar)
+        elif colTypes[c] == 'Float':
+            randVar = rd.uniform(float(colRange[c][0]), float(colRange[c][1]))
+            # randVar = r + 1
+            rData.append(randVar)
+        elif colTypes[c] == 'String':
+            # index how many strings are in the list
+            randVar = rd.randint(0, len(colRange[c]) - 1)
+            colStr = colRange[c][randVar]
+            rData.append(colStr)
+        else:
+            rData.append(rd.choice(('True', 'False')))
+    colData.append(rData)
+print(colData)
 
 #Turning lists into a dictionary for pandas dataframe. Make column names keys
 
