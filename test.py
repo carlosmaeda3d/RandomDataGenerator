@@ -1,4 +1,5 @@
 import random as rd
+import pandas as pd
 
 numCols = 4
 colNames = ['test', 'test2', 'test3', 'test4']
@@ -29,4 +30,12 @@ for c in range(numCols):
         else:
             rData.append(rd.choice(('True', 'False')))
     colData.append(rData)
-print(colData)
+# print(colData)
+
+# Turn lists into dictionary were the keys are the column names
+dictData = {}
+for name, data in zip(colNames, colData):
+    dictData[name] = data
+
+dataFrame = pd.DataFrame(dictData)
+print(dataFrame)

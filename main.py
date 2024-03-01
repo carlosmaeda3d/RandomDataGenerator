@@ -1,4 +1,5 @@
 import random as rd
+import pandas as pd
 
 numCols = 0
 colNames = []
@@ -59,12 +60,6 @@ while columnsNd < int(numCols):
     colTypes.append(colTypStr)
     colRange.append(colRangeStr)
 
-# TEST
-print(columnsNd)
-print(colNames)
-print(colTypes)
-print(colRange)
-
 #Random Generator to make lists for each column
 colData = []
 
@@ -87,14 +82,15 @@ for c in range(int(numCols)):
         else:
             rData.append(rd.choice(('True', 'False')))
     colData.append(rData)
-print(colData)
+# print(colData)
 
 #Turning lists into a dictionary for pandas dataframe. Make column names keys
+dictData = {}
+for name, data in zip(colNames, colData):
+    dictData[name] = data
 
 #Adding generator lists to a panda dataframe
+dataFrame = pd.DataFrame(dictData)
+print(dataFrame)
 
 #Export out as a .csv
-
-#  TEST
-# print(numColumns)
-# print(numRows)
