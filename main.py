@@ -94,3 +94,6 @@ dataFrame = pd.DataFrame(dictData)
 print(dataFrame)
 
 #Export out as a .csv
+print("What do you want to call the file?")
+flName = input()
+dataFrame.to_csv(flName + '.csv', index=False)
